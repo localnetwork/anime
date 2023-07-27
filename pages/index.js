@@ -14,23 +14,21 @@ function Home({animes}) {
 
   return ( 
     <> 
-      <div className='container mx-auto py-[100px]'>
-        <h2 className='text-white mb-[30px]'>{animes.pagination.items.total} items</h2>
-          <div className="flex flex-wrap mx-[-15px]">
-            {loading === true ? 
-              <>
-                {Array.from({ length: 10 }, (_, index) => (
-                    <CardSkeleton key={index} />
-                ))}
-              </>
-            :
-              <>
-                {animes.data.map((anime, index) => (
-                    <Card card={anime} key={index} />
-                ))}
-              </>
-            }
-        </div>
+      <h2 className='text-white mb-[30px]'>{animes.pagination.items.total} items</h2>
+        <div className="flex flex-wrap mx-[-15px]">
+          {loading === true ? 
+            <>
+              {Array.from({ length: 10 }, (_, index) => (
+                  <CardSkeleton key={index} />
+              ))}
+            </>
+          :
+            <>
+              {animes.data.map((anime, index) => (
+                  <Card card={anime} key={index} />
+              ))}
+            </>
+          }
       </div>
     </>
   )
