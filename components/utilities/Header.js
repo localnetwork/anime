@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
+import { Searchbar } from '../forms/Searchbar'
 
 export const Header = () => {
   return (
-    <header className='z-50 bg-[#1C1C1C] py-[15px] sticky top-[0] text-white'>
+    <header className='z-50 bg-[#1C1C1C] py-[15px] sticky top-[0] text-white mb-[15px]'>
         <div className='container mx-auto'>
             <div className="flex justify-between flex-wrap mx-[-15px]">
                 <div className='flex flex-wrap items-center px-[15px]'>
@@ -13,6 +14,9 @@ export const Header = () => {
                         <div className='w-full rounded-full h-[3px] bg-[#AAAAAA]'></div>
                     </div>
                     <Image className="max-w-[110px]" src="/images/logo.png" width={335} height={92} />
+
+
+                    <Searchbar />
                 </div>
                 <div className='px-[15px]'>
                     Menu

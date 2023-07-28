@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CardSkeleton = () => {
   return (
-    <div className="w-full px-[15px] max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] lg:max-w-[20%] mb-[50px]">
+    <div className="w-full px-[15px] xs:max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] lg:max-w-[20%] mb-[30px] md:mb-[50px]">
         <div className="relative">
             <div className="shimmer__block rounded-t-[10px] h-[300px] w-full"></div>
             <div className="shimmer__block max-w-[150px]"></div>
@@ -17,5 +17,5 @@ export const CardSkeleton = () => {
         </div>
         <div className="shimmer__block rounded-[10px] h-[20px] mt-[10px]"></div>
     </div>
-    )
+    ) 
 }
