@@ -13,7 +13,11 @@ export const Header = () => {
                         <div className='w-full rounded-full h-[3px] bg-[#AAAAAA] mb-[5px]'></div>
                         <div className='w-full rounded-full h-[3px] bg-[#AAAAAA]'></div>
                     </div>
-                    <Image className="max-w-[110px]" src="/images/logo.png" width={335} height={92} />
+                    {/* <Image className="max-w-[110px]" src="/images/logo.png" width={335} height={92} /> */}
+
+                    <div className='font-bold'>
+                        Anime<span className='text-[#b47fff]'>List </span>
+                    </div>
 
 
                     <Searchbar />

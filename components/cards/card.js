@@ -1,11 +1,16 @@
-import React from 'react'
+import { useEffect, React } from 'react'
 import Image from 'next/image'
+import initializeLazyLoading from '@/services/lazyLoadService'
 
-export const Card = ({card}) => {
+export const Card = ({card}) => { 
+  useEffect(() => {
+    initializeLazyLoading();  
+  }, []);
   return (
     <div className="w-full px-[15px] xs:max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] lg:max-w-[20%] mb-[30px] md:mb-[50px]">
-        <div className="relative">
-            <Image alt={card.title} className="rounded-t-[10px] h-[300px] w-full object-contain bg-black" src={card.images.webp.large_image_url} width={300} height={300} alt={card.title} />
+    
+        <div className="relative h-[300px] bg-black flex items-center rounded-t-[10px]">
+            <Image className="lazy w-full object-contain" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src={card.images.webp.large_image_url} width={300} height={300} alt={card.title} />
             {card.airing == true ? 
             <div className="airing bg-[#0E0E0E] text-[#AAAAA5] mr-[5px] absolute bottom-[5px] left-[5px]  py-[3px] px-[10px] rounded-[10px] uppercase text-[10px] line-h-[100%] font-bold"> Airing </div> : ''
             }

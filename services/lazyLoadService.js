@@ -1,0 +1,27 @@
+const initializeLazyLoading = () => {
+    const lazyImages = Array.from(document.querySelectorAll('img.lazy'));
+
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                
+            const lazyImage = entry.target;
+            console.log(lazyImage.src); 
+            lazyImage.src = lazyImage.dataset.src;
+            // lazyImage.srcset = lazyImage.dataset.srcset;
+            lazyImage.classList.remove('lazy');
+            lazyImageObserver.unobserve(lazyImage);
+            }
+        });
+        });
+
+        lazyImages.forEach((lazyImage) => {
+        lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Possibly fall back to event handlers here
+    }
+};
+  
+export default initializeLazyLoading;
