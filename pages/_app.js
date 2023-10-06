@@ -1,6 +1,6 @@
-import '@/styles/globals.css'
+import "@/styles/globals.css";
 
-import Layout from '@/components/misc/Layout'
+import Layout from "@/components/misc/Layout";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -9,5 +9,5 @@ export default function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  )
-}  
+  );
+}

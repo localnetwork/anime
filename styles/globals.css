@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@fortawesome/fontawesome-svg-core/styles.css"; 
-
-
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -29,9 +26,8 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
-
 .text-primary {
-  color: #AAAAA5;
+  color: #aaaaa5;
 }
 
 .shimmer__block {
@@ -42,32 +38,37 @@ body {
   animation-timing-function: linear;
   animation-delay: 0.5s;
   background-color: #282828;
-  background-image: linear-gradient(90deg, #282828 14.36%, #303030 56.29%, #282828 100%);
+  background-image: linear-gradient(
+    90deg,
+    #282828 14.36%,
+    #303030 56.29%,
+    #282828 100%
+  );
   background-repeat: no-repeat;
   background-size: 300px 300px;
   position: relative;
 }
 @keyframes placeHolderShimmer {
   0% {
-      background-position: calc(0% - 300px) 0;
- }
+    background-position: calc(0% - 300px) 0;
+  }
   20% {
-      background-position: calc(0% - 300px) 0;
- }
+    background-position: calc(0% - 300px) 0;
+  }
   80% {
-      background-position: calc(100% + 300px) 0;
- }
+    background-position: calc(100% + 300px) 0;
+  }
   100% {
-      background-position: calc(100% + 300px) 0;
- }
+    background-position: calc(100% + 300px) 0;
+  }
 }
 .container {
   padding-left: 15px;
-  padding-right: 15px; 
+  padding-right: 15px;
 }
 
 @media (max-width: 767px) {
   .container {
-    max-width: 100%; 
+    max-width: 100%;
   }
 }
