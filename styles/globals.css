@@ -72,3 +72,9 @@ body {
     max-width: 100%;
   }
 }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1440px; 
+  }
+}
