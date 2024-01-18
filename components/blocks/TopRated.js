@@ -29,7 +29,7 @@ export const TopRated = () => {
 
   return (
     <div className="text-white bg-[#1C1C1C] py-[15px] flex flex-col">
-      <h2 className="font-bold text-[30px] px-[15px] mt-0 mb-[15px]">
+      <h2 className="font-bold text-[20px] px-[15px] mt-0 mb-[15px]">
         Top Anime
       </h2>
       {isLoading ? (
@@ -73,8 +73,38 @@ export const TopRated = () => {
             <div>
               {topAnimes.map((post, index) => (
                 <div key={index}>
+                  {console.log(post)}
                   {index === 0 ? (
-                    <div>{post.title}</div>
+                    <div className="w-full relative mb-[30px] rounded-t-[15px] ">
+                      <span className="shadow-fill"></span>
+                      <Image
+                        className="w-full h-full object-cover absolute"
+                        src={post.images.webp.large_image_url}
+                        width={500}
+                        height={300}
+                        alt={post.title}
+                      />
+
+                      <div className="z-[20] relative">
+                        <div>
+                          <div className="h-[100px] w-full"></div>
+                          <div className="shimmer__block max-w-[150px]"></div>
+                        </div>
+                        <div className="flex gap-x-[15px] border-t border-t-[#1C1C1C] text-white px-[15px] py-[10px] text-[12px] ">
+                          <div className="flex items-center gap-1 rounded-[3px] p-[3px] bg-[#fff] text-black text-center text-[20px] font-bold">
+                            <div className="rounded-[10px] w-[40px]">
+                              {index + 1}
+                            </div>
+                          </div>
+                          <div className="d-flex w-full">
+                            <div className="font-bold text-[16px] mb-[10px]">
+                              {post.title}
+                            </div>
+                            <div className="h-[10px]"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <div className="item-wrapper">
                       <Image
