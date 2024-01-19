@@ -28,13 +28,13 @@ export const TopRated = () => {
   }, []);
 
   return (
-    <div className="text-white bg-[#1C1C1C] py-[15px] flex flex-col">
+    <div className="text-white bg-[#1C1C1C] py-[15px] rounded-t-[5px] rounded-b-[5px] flex flex-col">
       <h2 className="font-bold text-[20px] px-[15px] mt-0 mb-[15px]">
         Top Anime
       </h2>
       {isLoading ? (
         <>
-          <div className="w-full mb-[30px] rounded-t-[15px]">
+          <div className="w-full mb-[10px] rounded-t-[15px]">
             <div className="relative">
               <div className="bg-[#282828] h-[100px] w-full"></div>
               <div className="shimmer__block max-w-[150px]"></div>
@@ -53,11 +53,11 @@ export const TopRated = () => {
             {Array.from({ length: 4 }, (_, index) => (
               <div
                 key={index}
-                className="w-full mb-[30px] flex items-center gap-x-[15px] md:mb-[50px]"
+                className="w-full mb-[10px] flex items-center gap-x-[15px] md:mb-[50px]"
               >
                 <div className="max-w-[15%] w-full h-[30px] bg-[#282828]"></div>
                 <div className="flex gap-x-[15px] w-full max-w-[85%]">
-                  <div className="max-w-[20%] w-full h-[50px] bg-[#282828]"></div>
+                  <div className="max-w-[20%] w-full h-[80px] bg-[#282828]"></div>
                   <div className="w-full max-w-[80%]">
                     <div className="max-w-[100%] w-full h-[10px] mb-[10px] bg-[#282828]"></div>
                     <div className="max-w-[20%] w-full h-[10px] bg-[#282828]"></div>
@@ -86,17 +86,20 @@ export const TopRated = () => {
 
                       <div className="z-[20] relative">
                         <div className="h-[100px] w-full"></div>
-                        <div className="flex gap-x-[15px] border-t border-t-[#1C1C1C] text-white px-[15px] py-[10px] text-[12px] ">
+                        <div className="flex gap-x-[15px] text-white px-[15px] py-[10px] text-[12px] ">
                           <div className="flex items-center gap-1 rounded-[3px] p-[3px] bg-[#fff] text-black text-center text-[20px] font-bold">
                             <div className="rounded-[10px] w-[40px]">
                               {index + 1}
                             </div>
                           </div>
                           <div className="d-flex w-full">
-                            <div className="font-bold text-[16px] mb-[10px]">
+                            <div className="font-bold text-[16px]">
                               {post.title}
                             </div>
-                            <div className="h-[10px]"></div>
+                            <div className="w-full flex text-[14px] items-center gap-x-[5px]">
+                              <Users color="#fff" width={30} height={30} />
+                              {post.members.toLocaleString()}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -106,12 +109,11 @@ export const TopRated = () => {
                       key={index}
                       className=" w-full px-[15px] flex items-center gap-x-[15px] [&:not(:last-of-type)]:mb-[30px]"
                     >
-                      {console.log(post)}
-                      <div className="rounded-[5px] flex items-center justify-center h-[50px] max-w-[50px] w-full text-[20px] font-bold text-center w-full p-[15px] bg-[#282828]">
+                      <div className="rounded-[5px] flex items-center justify-center h-[50px] max-w-[50px] w-full text-[20px] text-center w-full p-[15px] border-[2px] border-[#666] text-[#666]">
                         {index + 1}
                       </div>
                       <div className="flex gap-x-[15px] w-full max-w-[85%]">
-                        <div className="max-w-[20%] w-full bg-[#282828]">
+                        <div className="max-w-[20%] w-full ">
                           <Image
                             className="object-cover w-full h-[80px]"
                             src={post.images.webp.large_image_url}
@@ -121,11 +123,11 @@ export const TopRated = () => {
                           />
                         </div>
                         <div className="w-full max-w-[80%]">
-                          <div className="max-w-[100%] w-full mb-[10px]">
+                          <div className="max-w-[100%] w-full mb-[5px] text-[#ababab]">
                             {post.title}
                           </div>
-                          <div className="w-full flex text-[14px] items-center gap-x-[5px]">
-                            <Users color="#FFFFFF" width={30} height={30} />
+                          <div className="w-full flex text-[14px] items-center gap-x-[5px] text-[#666]">
+                            <Users color="#666" width={30} height={30} />
                             {post.members.toLocaleString()}
                           </div>
                         </div>
