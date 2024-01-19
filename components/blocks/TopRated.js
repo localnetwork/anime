@@ -73,6 +73,7 @@ export const TopRated = () => {
             <div className="nospace-last ">
               {topAnimes.map((post, index) => (
                 <div className="mb-[15px]" key={index}>
+                  {console.log(post)}
                   {index === 0 ? (
                     <div className="w-full relative rounded-t-[15px] ">
                       <span className="shadow-fill"></span>

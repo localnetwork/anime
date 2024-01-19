@@ -61,6 +61,7 @@ const Carousel = ({ animes }) => {
           <Slider {...settings}>
             {animes.map((post, index) => (
               <div key={index} className="relative">
+                {console.log("carousel", post.aired.string)}
                 <div className="pb-[56.25%]"></div>
                 <span
                   className="bg-gradient-to-r from-black z-[1] via-transparent to-transparent absolute top-0 left-0 w-full h-full"
@@ -82,6 +83,15 @@ const Carousel = ({ animes }) => {
                 <div className="absolute z-[2] left-0 bottom-0 px-[30px] pb-[50px]">
                   <h2 className="font-bold text-[25px]">{post.title}</h2>
                   <div className="mt-[5px]">{post.synopsis}</div>
+                  {post.aired.string.includes("Not") ? (
+                    <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
+                      Aired: No info available yet.
+                    </div>
+                  ) : (
+                    <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
+                      Aired: {post.aired.string}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
