@@ -15,7 +15,7 @@ export const Header = () => {
             </div>
             {/* <Image className="max-w-[110px]" src="/images/logo.png" width={335} height={92} /> */}
 
-            <div className="font-bold">
+            <div className="font-bold text-[25px]">
               Anime <span className="text-[#b47fff] font-bold">Universe</span>
             </div>
 

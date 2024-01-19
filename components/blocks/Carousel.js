@@ -3,6 +3,47 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import Image from "next/image";
+import ArrowCircleRight from "../svg/arrow-circle-right";
+import ArrowCircleLeft from "../svg/arrow-circle-left";
+function SampleNextArrow(props) {
+  console.log(props);
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`z-[20] absolute bottom-[50px] cursor-pointer right-[30px] ${
+        className.includes("slick-disabled") ? "hidden" : ""
+      }`}
+      onClick={onClick}
+    >
+      <ArrowCircleRight
+        width={60}
+        height={60}
+        color="#b47fff"
+        className="bg-[#fff] p-[15px] rounded-full hover:drop-shadow-md"
+      />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`z-[20] absolute bottom-[50px] cursor-pointer right-[120px] ${
+        className.includes("slick-disabled") ? "hidden" : ""
+      }`}
+      onClick={onClick}
+    >
+      <ArrowCircleLeft
+        width={60}
+        height={60}
+        color="#b47fff"
+        className="bg-[#fff] p-[15px] rounded-full hover:drop-shadow-md"
+      />
+    </div>
+  );
+}
+
 const Carousel = ({ animes }) => {
   const settings = {
     dots: false,
@@ -10,9 +51,11 @@ const Carousel = ({ animes }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow className="test" />,
   };
   return (
-    <div className="text-white">
+    <div className="text-white rounded-[10px] overflow-hidden">
       {animes && (
         <>
           <Slider {...settings}>
