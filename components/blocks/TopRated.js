@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-
+import Users from "../svg/users";
 export const TopRated = () => {
   const [topAnimes, setTopAnimes] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -70,12 +70,11 @@ export const TopRated = () => {
       ) : (
         <>
           {topAnimes && (
-            <div>
+            <div className="nospace-last ">
               {topAnimes.map((post, index) => (
-                <div key={index}>
-                  {console.log(post)}
+                <div className="mb-[15px]" key={index}>
                   {index === 0 ? (
-                    <div className="w-full relative mb-[30px] rounded-t-[15px] ">
+                    <div className="w-full relative rounded-t-[15px] ">
                       <span className="shadow-fill"></span>
                       <Image
                         className="w-full h-full object-cover absolute"
@@ -86,10 +85,7 @@ export const TopRated = () => {
                       />
 
                       <div className="z-[20] relative">
-                        <div>
-                          <div className="h-[100px] w-full"></div>
-                          <div className="shimmer__block max-w-[150px]"></div>
-                        </div>
+                        <div className="h-[100px] w-full"></div>
                         <div className="flex gap-x-[15px] border-t border-t-[#1C1C1C] text-white px-[15px] py-[10px] text-[12px] ">
                           <div className="flex items-center gap-1 rounded-[3px] p-[3px] bg-[#fff] text-black text-center text-[20px] font-bold">
                             <div className="rounded-[10px] w-[40px]">
@@ -106,15 +102,34 @@ export const TopRated = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="item-wrapper">
-                      <Image
-                        className="object-contain w-full h-[150px] bg-[#000]"
-                        src={post.images.webp.large_image_url}
-                        width={270}
-                        height={379}
-                        alt={post.title}
-                      />
-                      {post.title}
+                    <div
+                      key={index}
+                      className=" w-full px-[15px] flex items-center gap-x-[15px] [&:not(:last-of-type)]:mb-[30px]"
+                    >
+                      {console.log(post)}
+                      <div className="rounded-[5px] flex items-center justify-center h-[50px] max-w-[50px] w-full text-[20px] font-bold text-center w-full p-[15px] bg-[#282828]">
+                        {index + 1}
+                      </div>
+                      <div className="flex gap-x-[15px] w-full max-w-[85%]">
+                        <div className="max-w-[20%] w-full bg-[#282828]">
+                          <Image
+                            className="object-cover w-full h-[80px]"
+                            src={post.images.webp.large_image_url}
+                            width={100}
+                            height={100}
+                            alt={post.title}
+                          />
+                        </div>
+                        <div className="w-full max-w-[80%]">
+                          <div className="max-w-[100%] w-full mb-[10px]">
+                            {post.title}
+                          </div>
+                          <div className="w-full flex text-[14px] items-center gap-x-[5px]">
+                            <Users color="#FFFFFF" width={30} height={30} />
+                            {post.members.toLocaleString()}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

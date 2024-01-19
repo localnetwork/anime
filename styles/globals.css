@@ -88,3 +88,9 @@ body {
     max-width: 1440px;
   }
 }
+
+@layer components {
+  .nospace-last > *:last-of-type {
+    margin-bottom: 0 !important;
+  }
+}
