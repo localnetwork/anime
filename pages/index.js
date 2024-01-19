@@ -6,10 +6,11 @@ import { useState, useEffect } from "react";
 import { CardSkeleton } from "@/components/cards/cardSkeleton";
 import { Animes } from "@/components/blocks/Animes";
 import Carousel from "@/components/blocks/Carousel";
-function Home({ animes }) {
+import axios from "axios";
+function Home({ animes, upcoming }) {
   return (
     <>
-      <Carousel />
+      <Carousel animes={upcoming} />
       <Animes animes={animes} />
     </>
   );
@@ -17,9 +18,16 @@ function Home({ animes }) {
 
 export async function getStaticProps() {
   const api = await fetch(`${process.env.NEXT_PUBLIC_API}?limit=12`);
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/v4/seasons/upcoming?limit=5`
+  );
+  const upcoming = res.data.data;
+  console.log(upcoming);
+  // const upcoming = await apiUpcoming.json();
   const animes = await api.json();
   return {
     props: {
+      upcoming,
       animes,
     },
   };
