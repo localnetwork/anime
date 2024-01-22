@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Searchbar } from "../forms/Searchbar";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -16,7 +17,9 @@ export const Header = () => {
             {/* <Image className="max-w-[110px]" src="/images/logo.png" width={335} height={92} /> */}
 
             <div className="font-bold text-[25px]">
-              Anime <span className="text-[#b47fff] font-bold">Universe</span>
+              <Link href="/">
+                Anime <span className="text-[#b47fff] font-bold">Universe</span>
+              </Link>
             </div>
 
             <Searchbar />

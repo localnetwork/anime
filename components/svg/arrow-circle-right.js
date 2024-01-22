@@ -12,10 +12,10 @@ const ArrowCircleRight = ({ ...props }) => {
     >
       <path
         stroke={props.color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-miterlimit="10"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="2"
         d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"
       />
     </svg>

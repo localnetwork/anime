@@ -9,10 +9,7 @@ export const Animes = ({ animes, repo }) => {
   }, []);
   return (
     <>
-      <h2 className="text-white mb-[30px]">
-        {/* {console.log(animes)} */}
-        {/* {animes.pagination.items.total.toLocaleString()} items */}
-      </h2>
+      <h2 className="text-white mb-[30px]"></h2>
       <div className="flex flex-wrap mx-[-15px]">
         {loading === true ? (
           <>

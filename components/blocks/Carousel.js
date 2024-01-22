@@ -6,7 +6,6 @@ import Image from "next/image";
 import ArrowCircleRight from "../svg/arrow-circle-right";
 import ArrowCircleLeft from "../svg/arrow-circle-left";
 function SampleNextArrow(props) {
-  console.log(props);
   const { className, style, onClick } = props;
   return (
     <div
@@ -52,7 +51,7 @@ const Carousel = ({ animes }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow className="test" />,
+    prevArrow: <SamplePrevArrow />,
   };
   return (
     <div className="text-white rounded-[10px] overflow-hidden">
@@ -61,7 +60,6 @@ const Carousel = ({ animes }) => {
           <Slider {...settings}>
             {animes.map((post, index) => (
               <div key={index} className="relative">
-                {console.log("carousel", post.aired.string)}
                 <div className="pb-[56.25%]"></div>
                 <span
                   className="bg-gradient-to-r from-black z-[1] via-transparent to-transparent absolute top-0 left-0 w-full h-full"

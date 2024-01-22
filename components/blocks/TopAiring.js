@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Users from "../svg/users";
-export const TopRated = ({ ...props }) => {
+export const TopAiring = ({ ...props }) => {
   const [topAnimes, setTopAnimes] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -10,7 +10,7 @@ export const TopRated = ({ ...props }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/v4/top/anime?filter=bypopularity&limit=5`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/v4/top/anime?filter=airing&limit=5`
         );
         if (response.status === 200) {
           setIsLoading(false);
@@ -32,7 +32,7 @@ export const TopRated = ({ ...props }) => {
       className={`${props.className} text-white bg-[#1C1C1C] py-[15px] rounded-t-[5px] rounded-b-[5px] flex flex-col`}
     >
       <h2 className="font-bold text-[20px] px-[15px] mt-0 mb-[15px]">
-        Top Rated Anime
+        Top Airing Anime
       </h2>
       {isLoading ? (
         <>
