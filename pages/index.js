@@ -19,7 +19,7 @@ function Home({ animes, upcoming }) {
 export async function getStaticProps() {
   const api = await fetch(`${process.env.NEXT_PUBLIC_API}?limit=10`);
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/v4/seasons/upcoming?limit=10`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/v4/seasons/now?limit=10`
   );
   const upcoming = res.data.data;
   const animes = await api.json();

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Searchbar } from "../forms/Searchbar";
 import Link from "next/link";
+import Logo from "../svg/logo";
 
 export const Header = () => {
   return (
@@ -18,7 +19,14 @@ export const Header = () => {
 
             <div className="font-bold text-[25px]">
               <Link href="/">
-                Anime <span className="text-[#b47fff] font-bold">Universe</span>
+                {/* Anime <span className="text-[#b47fff] font-bold">Universe</span>
+                <Image
+                  src="/images/test.svg"
+                  width={300}
+                  height={200}
+                  alt={"test"}
+                /> */}
+                <Logo />
               </Link>
             </div>
 
