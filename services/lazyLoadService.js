@@ -6,7 +6,6 @@ const initializeLazyLoading = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const lazyImage = entry.target;
-          // console.log(lazyImage.src);
           lazyImage.src = lazyImage.dataset.src;
           // lazyImage.srcset = lazyImage.dataset.srcset;
           lazyImage.classList.remove("lazy");

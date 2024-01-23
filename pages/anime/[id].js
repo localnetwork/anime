@@ -30,7 +30,6 @@ export async function getStaticProps({ params }) {
     const apiUrl = `https://api.jikan.moe/v4/anime/${id}`;
     const response = await fetch(apiUrl);
 
-    console.log(response);
     if (response.status === 200) {
       animeData = await response.json();
       animeData = animeData.data;
@@ -55,7 +54,6 @@ export async function getStaticProps({ params }) {
 
 export default function AnimePage({ animeData }) {
   const anime = animeData;
-  console.log(anime);
   const router = useRouter();
   return (
     <div>

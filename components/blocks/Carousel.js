@@ -44,26 +44,6 @@ function PrevArrow(props) {
 }
 
 const Carousel = ({ animes }) => {
-  const fallbackImageLoaded = useRef(false);
-
-  const checkImgStatus = (img) => {
-    console.log(img);
-    try {
-      const response = axios.get(img);
-      console.log(response);
-      if (response.status === 404) {
-        return 404;
-      }
-      // if (response.status != 200) {
-      //   throw new Error("Fetching data failed.");
-      // }
-    } catch (error) {
-      // console.error("Error fetching JSON data:", error);
-    }
-  };
-
-  // checkImgStatus();
-
   const settings = {
     dots: false,
     infinite: false,
