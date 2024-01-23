@@ -56,8 +56,12 @@ export default function AnimePage({ animeData }) {
   const anime = animeData;
   const router = useRouter();
   return (
-    <div>
-      <h1 className="text-white">{anime.title}</h1>
-    </div>
+    <>
+      {anime && (
+        <div>
+          <h1 className="text-white">{anime.title}</h1>
+        </div>
+      )}
+    </>
   );
 }
