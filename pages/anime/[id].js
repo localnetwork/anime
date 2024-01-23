@@ -8,7 +8,13 @@ async function fetchAnimeIdsFromYourAPI() {
   return data;
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({}) {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
   const resAnim = await fetchAnimeIdsFromYourAPI();
 
   const animeIds = resAnim.sfw.concat(resAnim.nsfw);
@@ -17,7 +23,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -49,6 +55,7 @@ export async function getStaticProps({ params }) {
     props: {
       animeData,
     },
+    revalidate: 120, // In seconds
   };
 }
 
