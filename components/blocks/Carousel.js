@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import Image from "next/image";
 import ArrowCircleRight from "../svg/arrow-circle-right";
 import ArrowCircleLeft from "../svg/arrow-circle-left";
+import Link from "next/link";
 function NextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -60,46 +61,48 @@ const Carousel = ({ animes }) => {
         <>
           <Slider {...settings}>
             {animes.map((post, index) => (
-              <div key={index} className="relative flex">
-                <div className="pb-[56.25%]"></div>
-                <span
-                  className="bg-gradient-to-r from-black z-[1] via-transparent to-transparent absolute top-0 left-0 w-full h-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(77deg, rgba(0,0,0,.9), transparent 99%)",
-                  }}
-                ></span>
-                <Image
-                  src={
-                    post?.trailer.images.maximum_image_url ||
-                    post?.images.webp.large_image_url
-                  }
-                  width={1200}
-                  height={400}
-                  className="absolute top-0 left-0 w-full h-full object-cover bg-[#000]"
-                  alt={post.title}
-                  onError={(e) => {
-                    e.target.srcset = post?.images.webp.large_image_url;
-                  }}
-                />
+              <Link key={index} href={`/anime/${post.mal_id}`}>
+                <div key={index} className="relative flex">
+                  <div className="pb-[56.25%]"></div>
+                  <span
+                    className="bg-gradient-to-r from-black z-[1] via-transparent to-transparent absolute top-0 left-0 w-full h-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(77deg, rgba(0,0,0,.9), transparent 99%)",
+                    }}
+                  ></span>
+                  <Image
+                    src={
+                      post?.trailer.images.maximum_image_url ||
+                      post?.images.webp.large_image_url
+                    }
+                    width={1200}
+                    height={400}
+                    className="absolute top-0 left-0 w-full h-full object-cover bg-[#000]"
+                    alt={post.title_english}
+                    onError={(e) => {
+                      e.target.srcset = post?.images.webp.large_image_url;
+                    }}
+                  />
 
-                <div className="absolute z-[2] left-0 bottom-0 pl-[30px] pr-[300px] pb-[50px]">
-                  <h2 className="font-bold text-[25px]">{post.title}</h2>
-                  <div className="mt-[5px]">
-                    {post.synopsis.substring(0, 150)}
-                    {post.synopsis.length > 150 ? "..." : ""}
+                  <div className="absolute z-[2] left-0 bottom-0 pl-[30px] pr-[300px] pb-[50px]">
+                    <h2 className="font-bold text-[25px]">{post.title}</h2>
+                    <div className="mt-[5px]">
+                      {post.synopsis.substring(0, 150)}
+                      {post.synopsis.length > 150 ? "..." : ""}
+                    </div>
+                    {post.aired.string.includes("Not") ? (
+                      <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
+                        Aired: No info available yet.
+                      </div>
+                    ) : (
+                      <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
+                        Aired: {post.aired.string}
+                      </div>
+                    )}
                   </div>
-                  {post.aired.string.includes("Not") ? (
-                    <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
-                      Aired: No info available yet.
-                    </div>
-                  ) : (
-                    <div className="inline-block rounded-[5px] px-[10px] mt-[15px] py-[5px] text-[12px] bg-[#6735AE] text-white">
-                      Aired: {post.aired.string}
-                    </div>
-                  )}
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
         </>

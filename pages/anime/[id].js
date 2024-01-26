@@ -1,3 +1,4 @@
+import Anime from "@/components/node/Anime";
 import { useRouter } from "next/router";
 
 async function fetchAnimeIdsFromYourAPI() {
@@ -62,13 +63,5 @@ export async function getStaticProps({ params }) {
 export default function AnimePage({ animeData }) {
   const anime = animeData;
   const router = useRouter();
-  return (
-    <>
-      {anime && (
-        <div>
-          <h1 className="text-white">{anime.title}</h1>
-        </div>
-      )}
-    </>
-  );
+  return <>{anime && <Anime anime={anime} />}</>;
 }
