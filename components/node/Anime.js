@@ -14,20 +14,44 @@ const Anime = ({ ...props }) => {
           />
         </div>
       )}
-      <h1 className="text-[#ababab] mt-[15px] font-bold text-[30px]">
-        {anime.title_english}
-
-        {anime.year && <>{`(${anime.year})`}</>}
-      </h1>
+      {anime.title && (
+        <h1 className="text-[#ababab] mt-[15px] font-bold text-[30px]">
+          {anime.title}
+          {anime.year && <>{`(${anime.year})`}</>}
+        </h1>
+      )}
       <div className="flex mt-[15px] text-[17px] text-[#666] justify-between">
-        <div className="">Aired: {anime.aired.string} </div>
-        <div className="flex justify-end">
-          <div className="flex gap-x-[10px] items-center ">
-            <Heart className="" color="#666" width={20} height={18} />
+        <div className="flex flex-col">
+          {anime.aired.string && (
+            <div className="">
+              <span className="font-bold">Aired:</span> {anime.aired.string}{" "}
+            </div>
+          )}
+          {anime.studios && (
+            <div>
+              <div className="font-bold">Studios:</div>
+              {anime.studios.map((studio, index) => (
+                <>
+                  <div className="mb-[5px] text-[#6735AE]">
+                    {console.log(studio, "studio")}
+                    {studio.name}
+                  </div>
+                </>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="">
+          <div className="flex gap-x-[5px] ">
+            <Heart className="mt-[5px]" color="#666" width={20} height={18} />
             {anime.favorites.toLocaleString()} favorites
           </div>
         </div>
       </div>
+      <div
+        className="text-[#666] mt-[15px]"
+        dangerouslySetInnerHTML={{ __html: anime.synopsis }}
+      ></div>
     </div>
   );
 };
