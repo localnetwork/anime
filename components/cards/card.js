@@ -12,7 +12,7 @@ export const Card = ({ card }) => {
   return (
     <div className="w-full px-[15px] xs:max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] lg:max-w-[20%] mb-[30px] md:mb-[50px]">
       <Link href={`anime/${card.mal_id}`}>
-        <div className="relative h-[300px] bg-black flex items-center rounded-t-[10px]">
+        <div className="relative h-[300px] bg-black flex items-center rounded-t-[10px] overflow-hidden">
           <Image
             className="lazy w-full object-contain"
             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

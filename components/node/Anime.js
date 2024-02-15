@@ -2,6 +2,7 @@ import React from "react";
 import Heart from "../svg/heart";
 const Anime = ({ ...props }) => {
   const { anime } = props;
+  console.log(anime);
   return (
     <div>
       {anime.trailer.embed_url && (
@@ -32,10 +33,7 @@ const Anime = ({ ...props }) => {
               <div className="font-bold">Studios:</div>
               {anime.studios.map((studio, index) => (
                 <>
-                  <div className="mb-[5px] text-[#6735AE]">
-                    {console.log(studio, "studio")}
-                    {studio.name}
-                  </div>
+                  <div className="mb-[5px] text-[#6735AE]">{studio.name}</div>
                 </>
               ))}
             </div>
